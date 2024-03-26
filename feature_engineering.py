@@ -66,3 +66,20 @@ def generate_features(df):
     df_new=df_new.dropna(axis=0)
     
     return df_new
+
+def add_original_feature_market(df,df_new):
+    df_new['open_market']=df['Open']
+    df_new['open_1_market']=df['Open'].shift(1)
+    df_new['close_1_market']=df['Close'].shift(1)
+    df_new['high_1_market']=df['High'].shift(1)
+    df_new['low_1_market']=df['Low'].shift(1)
+    df_new['volume_1_market']=df['Volume'].shift(1)
+
+def get_sp_500_data(df):
+    
+    df_new=pd.DataFrame()
+    add_original_feature_market(df,df_new)
+    df_new['close_market']=df['Close']
+    df_new=df_new.dropna(axis=0)
+    
+    return df_new
