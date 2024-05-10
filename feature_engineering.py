@@ -9,6 +9,16 @@ def add_original_feature(df,df_new):
     df_new['low_1']=df['Low'].shift(1)
     df_new['volume_1']=df['Volume'].shift(1)
 
+def add_original_feature_return(df,df_new):
+    df_new['open']=df['Open']
+    df_new['open_1']=df['Open'].shift(1)
+    df_new['close']=df['Close'].shift(1)
+    df_new['high_1']=df['High'].shift(1)
+    df_new['low_1']=df['Low'].shift(1)
+    df_new['volume_1']=df['Volume'].shift(1)
+
+    return df_new
+
 def add_avg_price(df,df_new):
     df_new['avg_price_5']=df['Close'].rolling(5).mean().shift(1)
     df_new['avg_price_30']=df['Close'].rolling(21).mean().shift(1)

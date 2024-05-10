@@ -1,6 +1,5 @@
-from ast import Str
-import yfinance as yf
 import pandas as pd
+import yfinance as yf
 import datetime as dt
 
 def get_raw_data(name :str):
